@@ -1,0 +1,35 @@
+{% set mapStyle = ['normal','light','fresh','blue','darkblue','grey'] %}
+{% set mapContent = ['bg','road','building','point'] %}
+
+<form class="form-horizontal">
+    <h3>选项</h3>
+    {# 样式 #}
+    <div class="control-group">
+        <label class="control-label">样式</label>
+        <div class="controls">
+            {% for each in mapStyle %}
+                <label class="radio inline">
+                    <input value="{{ each }}" name="mapStyle" type="radio" onclick="refreshStyle(this.value)">
+                    {{ each }}
+                </label>
+            {% endfor %}
+            <label class="radio inline">
+                <input value="a8c5da37d01334f5550c7a36a2875f0c" name="mapStyle" type="radio"
+                       onclick="refreshStyle(this.value)">
+                lighgrey
+            </label>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">地图内容</label>
+        <div class="controls">
+            {% for each in mapContent %}
+                <label class="checkbox inline">
+                    <input value="{{ each }}" name="chk_content" type="checkbox" checked onclick="refreshContent()">{{ each }}
+                </label>
+            {% endfor %}
+        </div>
+
+    </div>
+</form>
